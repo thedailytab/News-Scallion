@@ -1,0 +1,21 @@
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Navigate to directory
+        run: cd News-Scallion  # Change to your project directory
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify your Node.js version
+
+      - name: Install dependencies
+        run: npm install  # This will run in the correct directory
+
+      - name: Build project
+        run: npm run build  # This will also run in the correct directory
